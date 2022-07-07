@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block title %}Register{% endblock title %} {% block body %}
+
+
+<h2 class=""> Register Here</h2>
+<div>
+
+
+    <form action="" method="post">
+
+
+        {% csrf_token %}
+
+
+        <input type="text" placeholder="Username" name="username" required><br><br>
+        <input type="email" placeholder="exmple@gmail.com" name='email' required><br><br>
+        <input type="password" placeholder="password" name='password' required><br><br>
+        <input type="submit" value="Register">
+
+
+
+
+
+
+        <h3>{% for msg in messages %} {{msg}} {% endfor %}</h3>
+        <h3 style="color: red;">
+            {% if error %} {{error}} {% endif %}
+        </h3>
+
+
+    </form>
+
+    <a href="{% url 'index' %}">Login</a>
+</div>
+
+
+
+
+{% endblock body %}
